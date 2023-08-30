@@ -1,0 +1,109 @@
+:root {
+    --b: 500ms;
+    --a: 350ms;
+}
+
+body {
+    min-block-size: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: Helvetica;
+    color: white;
+}
+.content {
+    display: grid;
+    grid-template-columns: 23vw 23vw;
+    column-gap: 5rem;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh 2vw 2vh 2vw;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 30vh;
+    width: 100%;
+    min-width: 200px;
+    background-color: rgb(171, 171, 171);
+    background-size: cover;
+    box-shadow: 12px 15px 20px rgba(0, 0, 0, 0.3);
+    /* background-blend-mode: multiply; */
+}
+.card::before {
+    content: '';
+    position: absolute;
+    height: 110%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(background.jpeg);
+    background-position: 50% 55%;
+    pointer-events: none;
+    transition: all var(--b);
+}
+.card::after {
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: 
+    linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 12%, rgba(0, 0, 0, 0.1) 36%, rgba(0, 0, 0, 0.2) 56%, rgba(0, 0, 0, 0.54) 100%);
+    transition: all var(--b);
+}
+.card-content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;;
+    align-items: center;
+    transition: transform var(--a);
+}
+.desc {
+    text-align: center;
+    margin-bottom: 30px;
+}
+button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: background-color 300ms;
+}
+button:hover {
+    background-color: rgb(30, 30, 30);
+}
+button:active {
+    background-color: rgb(84, 84, 84)
+}
+.card:hover::before {
+    transform: translateY(-4%);
+}
+.card:hover::after {
+    transform: translateY(-50%);
+}
+.card:hover .card-content {
+    transform: translateY(0);
+}
+@media (hover: hover) {
+    .card-content > *:not(.card-head) {
+        opacity: 0;
+        transition: 
+        ease-in-out transform var(--a),
+        ease-in-out opacity var(--a);
+    }
+    .card-content {
+        transform: translateY(90%);
+    }
+}
+.card:hover .card-content > *:not(.card-head) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 60ms;
+}
