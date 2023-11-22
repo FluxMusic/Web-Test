@@ -67,6 +67,7 @@ function createStar(position) {
     star.style.left = `${position.x}px`;
     star.style.top = `${position.y}px`;
     star.style.filter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
+    star.style.webkitFilter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
     star.style.height = `${size}rem`;
     star.style.animationName = config.animations[count++ % 3];
     star.style.animationDuration = `${config.animationDuration}ms`;
