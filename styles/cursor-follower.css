@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height:100vh;
+    width: 100vw;
+    background: linear-gradient(45deg, rgb(182, 0, 173) 0%, rgb(112, 28, 191) 100%);
+}
+.glow-point {
+    position: absolute;
+    height: 0rem;
+    width: 0rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem aqua;
+    pointer-events: none;
+}
+.star {
+    position: absolute;
+    height: 2rem;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+}
+div {
+    height: 15rem;
+    width: 15rem;
+    background-color: black;
+    color: white;
+}
+.one {
+    background-color: rgb(3, 240, 240);
+}
+.two {
+    background-color: rgb(255, 207, 96);
+}
+.three {
+    background-color: rgb(254, 254, 145);
+}
+.star-shape {
+    background-color: white;
+}
+@keyframes fall1 {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0)
+        scale(0.6);
+    }
+    10% {
+        opacity: 100;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform: 
+        translate(0, 7rem)
+        rotateX(80deg)
+        rotateY(160deg)
+        scale(1); 
+    }
+}
+@keyframes fall2 {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0)
+        scale(1); 
+    }
+    10% {
+        opacity: 100;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform: 
+        translate(0, 7rem)
+        rotateZ(140deg)
+        rotateY(90deg)
+        scale(0.6); 
+    }
+}
+@keyframes fall3 {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0)
+        scale(1); 
+    }
+    10% {
+        opacity: 100;
+        transform: translate(0, 0)
+        rotateX(0)
+        rotateY(0)
+        rotateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform: 
+        translate(0, 7rem)
+        rotateX(180deg)
+        rotateY(30deg)
+        rotateZ(50deg)
+        scale(1.2); 
+    }
+}
