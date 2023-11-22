@@ -57,7 +57,7 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    background-image: url(/img/background.jpeg);
+    background-image: url(./img/background.jpeg);
     background-position: 50% 55%;
     pointer-events: none;
     -webkit-transition: all var(--b);
