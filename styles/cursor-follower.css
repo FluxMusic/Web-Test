@@ -42,7 +42,7 @@ div {
     }
     10% {
         opacity: 100;
-        transform: translate(0, 0)
+        transform: translate(0rem, 0rem)
         rotateX(0)
         rotateY(0)
         rotateZ(0);
@@ -67,7 +67,7 @@ div {
     }
     10% {
         opacity: 100;
-        transform: translate(0, 0)
+        transform: translate(0rem, 0rem)
         rotateX(0)
         rotateY(0)
         rotateZ(0);
@@ -92,7 +92,7 @@ div {
     }
     10% {
         opacity: 100;
-        transform: translate(0, 0)
+        transform: translate(0rem, 0rem)
         rotateX(0)
         rotateY(0)
         rotateZ(0);

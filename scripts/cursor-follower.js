@@ -7,7 +7,8 @@ const origin = {
 
 const last = {
     start: start,
-    starOrigin: origin
+    starOrigin: origin,
+    mouseOrigin: origin
 };
 
 const config = {
@@ -17,9 +18,6 @@ const config = {
     animations: ['fall1', 'fall2', 'fall3'],
     colors: ['rgb(3, 240, 240)', 'rgb(113, 254, 145)', 'rgb(254, 254, 245)', 'rgb(19, 203, 224)'],
     sizes: ['1.5', '0.7', '1.3']
-    // colors: ['invert(89%) sepia(16%) saturate(6837%) hue-rotate(121deg) brightness(96%) contrast(98%)',
-    // 'invert(14%) sepia(70%) saturate(3121%) hue-rotate(266deg) brightness(93%) contrast(126%)',
-    // 'invert(94%) sepia(7%) saturate(2263%) hue-rotate(358deg) brightness(106%) contrast(103%)']
 };
 
 let count = 0;
@@ -43,6 +41,7 @@ window.onmousemove = e => {
         createStar(position);
         updateStar(position);
     }
+    updateLastMousePosition(position);
 }
 
 function createPoint(position) {
@@ -74,7 +73,6 @@ function createStar(position) {
     star.style.left = `${position.x}px`;
     star.style.top = `${position.y}px`;
     star.style.filter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
-    //star.style.webkitFilter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
     star.style.height = `${size}rem`;
     star.style.animationName = config.animations[count++ % 3];
     star.style.animationDuration = `${config.animationDuration}ms`;
@@ -106,4 +104,7 @@ function updateStar(position) {
 function selectRandom(items) {
     const random = Math.floor(Math.random() * items.length);
     return random;
+}
+function updateLastMousePosition(position) {
+    last.mouseOrigin = position;
 }
