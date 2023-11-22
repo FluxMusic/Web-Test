@@ -28,15 +28,6 @@ div {
     background-color: rgb(19, 203, 224);
     color: white;
 }
-.one {
-    background-color: rgb(3, 240, 240);
-}
-.two {
-    background-color: rgb(255, 207, 96);
-}
-.three {
-    background-color: rgb(254, 254, 145);
-}
 .star-shape {
     background-color: white;
 }
@@ -59,7 +50,7 @@ div {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 7rem)
+        translate(0, 9rem)
         rotateX(80deg)
         rotateY(160deg)
         scale(1); 
@@ -84,7 +75,7 @@ div {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 7rem)
+        translate(0, 9rem)
         rotateZ(140deg)
         rotateY(90deg)
         scale(0.6); 
@@ -109,7 +100,7 @@ div {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 7rem)
+        translate(0, 9rem)
         rotateX(180deg)
         rotateY(30deg)
         rotateZ(50deg)

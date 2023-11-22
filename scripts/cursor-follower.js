@@ -1,13 +1,19 @@
-let last = new Date().getTime();
+let start = new Date().getTime();
 
 const origin = {
     x: 0,
     y: 0
 };
 
+const last = {
+    start: start,
+    starOrigin: origin
+};
+
 const config = {
-    timeBetweenStars: 25,
-    animationDuration: 1500,
+    timeBetweenStars: 200,
+    distanceBetweenStars: 75,
+    animationDuration: 1250,
     animations: ['fall1', 'fall2', 'fall3'],
     colors: ['rgb(3, 240, 240)', 'rgb(113, 254, 145)', 'rgb(254, 254, 245)', 'rgb(19, 203, 224)'],
     sizes: ['1.5', '0.7', '1.3']
@@ -28,13 +34,14 @@ window.onmousemove = e => {
     };
 
     const now = new Date().getTime();
-    const wasLongEnough = calcTime(last, now) >= config.timeBetweenStars;
-    
+    const wasLongEnough = calcTime(last.start, now) >= config.timeBetweenStars;
+    const movedFarEnough = calcDistance(last.starOrigin, position) >= config.distanceBetweenStars;
+
     createPoint(position);
 
-    if (wasLongEnough) {
+    if (movedFarEnough || wasLongEnough) {
         createStar(position);
-        updateTimer();
+        updateStar(position);
     }
 }
 
@@ -67,7 +74,7 @@ function createStar(position) {
     star.style.left = `${position.x}px`;
     star.style.top = `${position.y}px`;
     star.style.filter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
-    star.style.webkitFilter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
+    //star.style.webkitFilter = `drop-shadow(0px 0px ${size/2}rem ${color})`;
     star.style.height = `${size}rem`;
     star.style.animationName = config.animations[count++ % 3];
     star.style.animationDuration = `${config.animationDuration}ms`;
@@ -85,8 +92,16 @@ function appendElement(element) {
 function calcTime(start, end) {
     return end - start;
 }
-function updateTimer() {
-    last = new Date().getTime();
+function calcDistance(startPoint, endPoint) {
+    const diff = {
+        x: endPoint.x - startPoint.x,
+        y: endPoint.y - startPoint.y
+    };
+    return Math.sqrt(Math.pow(diff.x, 2) + Math.pow(diff.y, 2));
+}
+function updateStar(position) {
+    last.start = new Date().getTime();
+    last.starOrigin = position;
 }
 function selectRandom(items) {
     const random = Math.floor(Math.random() * items.length);
