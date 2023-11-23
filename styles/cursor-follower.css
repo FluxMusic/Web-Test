@@ -23,6 +23,8 @@ body {
 .to-buttons {
     margin-bottom: 5rem;
     margin-top: 5rem;
+}
+.to-buttons-button {
     border: none;
     background-color: black;
     color: white;
@@ -33,10 +35,10 @@ body {
     -o-transition: background-color 300ms;
     transition: background-color 300ms;
 }
-.to-buttons:hover {
+.to-buttons-button:hover {
     background-color: rgb(30, 30, 30);
 }
-.to-buttons:active {
+.to-buttons-button:active {
     background-color: rgb(84, 84, 84);
 }
 .glow-point {
