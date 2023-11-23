@@ -46,7 +46,7 @@ body {
     height: 0rem;
     width: 0rem;
     border-radius: 100%;
-    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgb(75, 249, 255);
+    box-shadow: 0.4rem 0.4rem 0.8rem 0.4rem rgb(75, 249, 255);
     pointer-events: none;
 }
 .star {
