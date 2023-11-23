@@ -1,5 +1,7 @@
 let start = new Date().getTime();
 
+const gameField = document.getElementById('spielfeld');
+
 const origin = {
     x: 0,
     y: 0
@@ -22,9 +24,9 @@ const config = {
 
 let count = 0;
 
-window.onmousemove = e => {
-    const x = e.clientX;
-    const y = e.clientY;
+document.getElementById('spielfeld').onmousemove = e => {
+    const x = e.layerX;
+    const y = e.layerY;
 
     const position = {
         x: x,
@@ -82,10 +84,10 @@ function createStar(position) {
     removeElement(star, config.animationDuration - 10);
 }
 function removeElement(element, delay) {
-    setTimeout(() => document.body.removeChild(element), delay);
+    setTimeout(() => gameField.removeChild(element), delay);
 }
 function appendElement(element) {
-    document.body.appendChild(element);
+    gameField.appendChild(element);
 }
 function calcTime(start, end) {
     return end - start;
