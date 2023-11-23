@@ -6,7 +6,28 @@
 body {
     height:100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: end;
     background: linear-gradient(45deg, rgb(182, 0, 173) 0%, rgb(112, 28, 191) 100%);
+}
+.to-buttons {
+    margin-bottom: 5rem;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5%;
+    cursor: pointer;
+    -webkit-transition: background-color 300ms;
+    -o-transition: background-color 300ms;
+    transition: background-color 300ms;
+}
+.to-buttons:hover {
+    background-color: rgb(30, 30, 30);
+}
+.to-buttons:active {
+    background-color: rgb(84, 84, 84);
 }
 .glow-point {
     position: absolute;
