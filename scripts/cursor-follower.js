@@ -14,6 +14,7 @@ const last = {
 };
 
 const config = {
+    glowSpacing: 5,
     timeBetweenStars: 200,
     distanceBetweenStars: 75,
     animationDuration: 1250,
@@ -43,6 +44,9 @@ document.getElementById('spielfeld').onmousemove = e => {
         createStar(position);
         updateStar(position);
     }
+
+    createTail(last.mouseOrigin, position);
+
     updateLastMousePosition(position);
 }
 
@@ -57,6 +61,19 @@ function createPoint(position) {
     appendElement(Point);
 
     removeElement(Point, 50);
+}
+function createTail(lastPosition, position) {
+    const distance = calcDistance(lastPosition, position);
+    const amount = determinePointAmount(distance);
+
+    const dx = (position.x - lastPosition.x) / amount;
+    const dy = (position.y - lastPosition.y) / amount;
+
+    for (let i = 0; i < amount; i++) {
+        const x = lastPosition.x + dx * i;
+        const y = lastPosition.y + dy * i;
+        createPoint({x, y});
+    }
 }
 function createStar(position) {
     const star = document.createElementNS('http://www.w3.org/2000/svg', "svg");
@@ -109,4 +126,7 @@ function selectRandom(items) {
 }
 function updateLastMousePosition(position) {
     last.mouseOrigin = position;
+}
+function determinePointAmount(distance) {
+    return Math.max(Math.floor(distance / config.glowSpacing), 1);
 }
