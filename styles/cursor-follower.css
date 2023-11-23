@@ -45,14 +45,13 @@ body {
     position: absolute;
     height: 0rem;
     width: 0rem;
-    border-radius: 1rem;
+    border-radius: 100%;
     box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgb(75, 249, 255);
     pointer-events: none;
 }
 .star {
     position: absolute;
-    height: 2rem;
-    aspect-ratio: 1 / 1;
+    animation-fill-mode: forwards;
     pointer-events: none;
 }
 @keyframes fall1 {
