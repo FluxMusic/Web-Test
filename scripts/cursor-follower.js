@@ -2,16 +2,9 @@ let start = new Date().getTime();
 
 const gameField = document.getElementById('spielfeld');
 
-const center = {
-    x: gameField.offsetWidth / 2,
-    y: gameField.offsetHeight / 2
-}
-
 const div = document.createElement('div');
 div.className = 'egal';
 div.style.position = 'absolute';
-div.style.top = `${center.y}px`;
-div.style.left = `${center.x}px`;
 appendElement(div);
 
 const origin = {
@@ -108,12 +101,6 @@ function createStar(position) {
     appendElement(star);
 
     removeElement(star, config.animationDuration);
-}
-window.onresize = () => {
-    center.x = gameField.offsetWidth / 2;
-    center.y = gameField.offsetHeight / 2;
-    div.style.top = `${center.y}px`;
-    div.style.left = `${center.x}px`;
 }
 document.getElementById('spielfeld').onmouseenter = (e) => {
     const position = {
