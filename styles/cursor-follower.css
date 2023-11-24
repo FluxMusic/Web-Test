@@ -4,18 +4,13 @@
     box-sizing: border-box;
 }
 body {
-    height:100vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     background:linear-gradient(0deg, rgb(15, 15, 15) 0%, rgb(55, 55, 55) 100%);
-}
-.egal {
-    height: 1px;
-    width: 1px;
-    background-color: white;
 }
 .spielfeld {
     height: 80vh;
@@ -25,11 +20,14 @@ body {
     border-radius: 10%;
     background: linear-gradient(45deg, rgb(182, 0, 173) 0%, rgb(112, 28, 191) 100%);
 }
-.to-buttons {
-    margin-bottom: 5rem;
+.buttons-grid {
+    margin-bottom: 1rem;
     margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
 }
-.to-buttons-button {
+.link-button {
     border: none;
     background-color: black;
     color: white;
@@ -40,10 +38,10 @@ body {
     -o-transition: background-color 300ms;
     transition: background-color 300ms;
 }
-.to-buttons-button:hover {
+.link-button:hover {
     background-color: rgb(30, 30, 30);
 }
-.to-buttons-button:active {
+.link-button:active {
     background-color: rgb(84, 84, 84);
 }
 .glow-point {
