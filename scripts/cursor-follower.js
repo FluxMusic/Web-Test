@@ -26,6 +26,7 @@ const last = {
 };
 
 const config = {
+    lerpAmount: 0.1,
     glowSpacing: 10,
     timeBetweenStars: 200,
     distanceBetweenStars: 75,
@@ -38,7 +39,6 @@ const config = {
 let count = 0;
 
 document.getElementById('spielfeld').onmousemove = e => {
-
     const position = {
         x: e.layerX,
         y: e.layerY
@@ -114,6 +114,14 @@ window.onresize = () => {
     center.y = gameField.offsetHeight / 2;
     div.style.top = `${center.y}px`;
     div.style.left = `${center.x}px`;
+}
+document.getElementById('spielfeld').onmouseenter = (e) => {
+    const position = {
+        x: e.layerX,
+        y: e.layerY
+    }
+
+    last.mouseOrigin = position;
 }
 function removeElement(element, delay) {
     setTimeout(() => gameField.removeChild(element), delay);

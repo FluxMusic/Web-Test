@@ -21,7 +21,7 @@ body {
     height: 80vh;
     width: 90vw;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     border-radius: 10%;
     background: linear-gradient(45deg, rgb(182, 0, 173) 0%, rgb(112, 28, 191) 100%);
 }
