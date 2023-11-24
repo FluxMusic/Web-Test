@@ -72,6 +72,9 @@ function createTail(lastPosition, position) {
     for (let i = 0; i < amount; i++) {
         const x = lastPosition.x + dx * i;
         const y = lastPosition.y + dy * i;
+        if (x === lastPosition.x && y === lastPosition.y) {
+            continue;            
+        }
         createPoint({x, y});
     }
 }
