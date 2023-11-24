@@ -16,7 +16,7 @@ window.onresize = (e) => {
 }
 
 gameField.onmousemove = (e) => {
-    mousePosition = {
+    const mousePosition = {
         x: e.layerX,
         y: e.layerY
     };
@@ -27,6 +27,6 @@ gameField.onmouseleave = () => {
     moveGlowPoint(gameFieldCenter);
 }
 function moveGlowPoint(position) {
-    glowPoint.style.left = `${position.x}px`;
-    glowPoint.style.top = `${position.y}px`;
+        glowPoint.style.left = `${position.x}px`;
+        glowPoint.style.top = `${position.y}px`;
 }
