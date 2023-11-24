@@ -2,6 +2,18 @@ let start = new Date().getTime();
 
 const gameField = document.getElementById('spielfeld');
 
+const center = {
+    x: gameField.offsetWidth / 2,
+    y: gameField.offsetHeight / 2
+}
+
+const div = document.createElement('div');
+div.className = 'egal';
+div.style.position = 'absolute';
+div.style.top = `${center.y}px`;
+div.style.left = `${center.x}px`;
+appendElement(div);
+
 const origin = {
     x: 0,
     y: 0
@@ -32,8 +44,6 @@ document.getElementById('spielfeld').onmousemove = e => {
         y: e.layerY
     };
 
-    console.log(position);
-
     const now = new Date().getTime();
     const movedFarEnough = calcDistance(last.starOrigin, position) >= config.distanceBetweenStars;
     const wasLongEnough = calcTime(last.start, now) >= config.timeBetweenStars;
@@ -46,58 +56,64 @@ document.getElementById('spielfeld').onmousemove = e => {
     }
 
     createTail(last.mouseOrigin, position);
-    
+
     updateLastMousePosition(position);
 }
 
 function createPoint(position) {
     const Point = document.createElement("div");
-    
+
     Point.className = 'glow-point';
-    
+
     Point.style.left = `${position.x}px`;
     Point.style.top = `${position.y}px`;
-    
+
     appendElement(Point);
-    
+
     removeElement(Point, 60);
 }
 function createTail(lastPosition, position) {
     const distance = calcDistance(lastPosition, position);
     const amount = determinePointAmount(distance);
-    
+
     const dx = (position.x - lastPosition.x) / amount;
     const dy = (position.y - lastPosition.y) / amount;
-    
+
     for (let i = 0; i < amount; i++) {
         const x = lastPosition.x + dx * i;
         const y = lastPosition.y + dy * i;
         if (x === lastPosition.x && y === lastPosition.y) {
-            continue;            
+            continue;
         }
-        createPoint({x, y});
+        createPoint({ x, y });
     }
 }
 function createStar(position) {
-   const star = document.createElement('span');
-   const color = config.colors[selectRandom(config.colors)];
-   const size = config.sizes[selectRandom(config.sizes)];
+    const star = document.createElement('span');
+    const color = config.colors[selectRandom(config.colors)];
+    const size = config.sizes[selectRandom(config.sizes)];
 
-   star.innerHTML = '&#x2726;';
-    
-   star.className = 'star';
+    star.innerHTML = '&#x2726;';
 
-   star.style.color = color;
-   star.style.textShadow = `0px 0px ${size}rem ${color}`;
-   star.style.left = `${position.x}px`;
-   star.style.top = `${position.y}px`;
-   star.style.fontSize = `${size}rem`;
-   star.style.animationName = config.animations[count++ % 3];
-   star.style.animationDuration = `${config.animationDuration}ms`;
-    
+    star.className = 'star';
+
+    star.style.color = color;
+    star.style.textShadow = `0px 0px ${size}rem ${color}`;
+    star.style.left = `${position.x}px`;
+    star.style.top = `${position.y}px`;
+    star.style.fontSize = `${size}rem`;
+    star.style.animationName = config.animations[count++ % 3];
+    star.style.animationDuration = `${config.animationDuration}ms`;
+
     appendElement(star);
-    
+
     removeElement(star, config.animationDuration);
+}
+window.onresize = () => {
+    center.x = gameField.offsetWidth / 2;
+    center.y = gameField.offsetHeight / 2;
+    div.style.top = `${center.y}px`;
+    div.style.left = `${center.x}px`;
 }
 function removeElement(element, delay) {
     setTimeout(() => gameField.removeChild(element), delay);
