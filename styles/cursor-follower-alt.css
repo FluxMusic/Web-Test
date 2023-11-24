@@ -10,13 +10,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(0deg, rgb(38, 38, 38), rgb(76, 76, 76));
+    background: linear-gradient(0deg, rgb(38, 38, 38), rgb(76, 76, 76));
 }
 .game-field {
     height: 80vh;
     width: 90vw;
     position: relative;
-    border-radius: 10%;
+    border-radius: 7.5rem;
     background: linear-gradient(45deg, aqua, rgb(0, 157, 255));
 }
 .glow-point {
