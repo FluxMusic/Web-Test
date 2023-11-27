@@ -27,6 +27,7 @@ body {
     position: absolute;
     border-radius: 100%;
     box-shadow: 0rem 0rem 0.5rem 0.5rem rgb(161, 5, 161);
+    pointer-events: none;
 }
 .buttons-grid {
     display: flex;
