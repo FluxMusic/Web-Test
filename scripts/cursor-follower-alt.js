@@ -9,11 +9,6 @@ const gameFieldCenter = {
     y: gameField.offsetHeight / 2
 };
 
-let lastMousePosition = {
-    x: 0,
-    y: 0
-};
-
 const glowPoint = document.getElementById('glow-point');
 
 const glowTrail = [];
@@ -32,8 +27,6 @@ gameField.onmousemove = (e) => {
         y: e.layerY
     };
     moveGlowPoint(mousePosition);
-    connectTrail(lastMousePosition, mousePosition);
-    updateLastMousePosition(mousePosition);
 }
 
 gameField.onmouseleave = () => {
@@ -42,32 +35,6 @@ gameField.onmouseleave = () => {
 function moveGlowPoint(position) {
         glowPoint.style.left = `${position.x}px`;
         glowPoint.style.top = `${position.y}px`;
-}
-function updateLastMousePosition(position) {
-    lastMousePosition = position;
-}
-function connectTrail(lastPosition, currentPosition) {
-    const distance = calculateDistance(lastPosition, currentPosition);
-    const amount = Math.max(Math.floor(distance / config.trailPointAmount), 1);
-
-    const dx = (currentPosition.x - lastPosition.x) / amount;
-    const dy = (currentPosition.y - lastPosition.y) / amount;
-
-    for (let i = 0; i < amount; i++) {
-        const x = lastPosition.x + dx * i;
-        const y = lastPosition.y + dy * i;
-        createTrailPoint({x, y});    
-    }
-}
-function createTrailPoint(position) {
-    const point = document.createElement('div');
-
-    point.className = 'glow-point';
-    point.style.left = `${position.x}px`;
-    point.style.top = `${position.y}px`;
-
-    appendElement(point);
-    removeElement(point, 60);
 }
 function calculateDistance(lastPosition, currentPosition) {
     const dx = currentPosition.x - lastPosition.x;
