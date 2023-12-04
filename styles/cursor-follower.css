@@ -76,7 +76,7 @@ body {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 9rem)
+        translate(1rem, 11rem)
         rotateX(80deg)
         rotateY(160deg)
         scale(1); 
@@ -101,7 +101,7 @@ body {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 9rem)
+        translate(0, 8rem)
         rotateZ(140deg)
         rotateY(90deg)
         scale(0.6); 
@@ -126,7 +126,7 @@ body {
     100% {
         opacity: 0;
         transform: 
-        translate(0, 9rem)
+        translate(-0.3rem, 5rem)
         rotateX(180deg)
         rotateY(30deg)
         rotateZ(50deg)

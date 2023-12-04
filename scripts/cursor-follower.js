@@ -26,7 +26,7 @@ const config = {
     animationDuration: 1000,
     animations: ['fall1', 'fall2', 'fall3'],
     colors: ['rgb(3, 240, 240)', 'rgb(113, 254, 145)', 'rgb(254, 254, 245)', 'rgb(19, 203, 224)'],
-    sizes: ['1.7', '0.9', '1.5', '1.2']
+    sizes: ['1.4', '0.6', '1.2', '0.9']
 };
 
 let count = 0;
