@@ -19,6 +19,7 @@ body {
     height: 20rem;
     width: 3.5rem;
     background-color: rgb(15, 15, 15);
+    box-shadow: 0 0 1rem rgb(134, 134, 134);
     border-radius: 1.5rem;
     text-wrap: nowrap;
     overflow: hidden;
