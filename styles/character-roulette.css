@@ -36,12 +36,12 @@ h1 {
     width: 100%;
     background: linear-gradient(rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0) 25%,
-        rgba(0, 26, 0, 0.5) 25%,
-        rgba(0, 26, 0, 0.5) 50%,
+        rgba(0, 26, 0, 0.3) 25%,
+        rgba(0, 26, 0, 0.3) 50%,
         rgba(255, 255, 255, 0) 50%,
         rgba(255, 255, 255, 0) 75%,
-        rgba(0, 26, 0, 0.5) 75%,
-        rgba(0, 26, 0, 0.5) 100%);
+        rgba(0, 26, 0, 0.3) 75%,
+        rgba(0, 26, 0, 0.3) 100%);
         background-size: 100% 16px;
     transform: translateY(-5rem);
 }
