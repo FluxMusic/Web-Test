@@ -2,10 +2,20 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const text = document.querySelector("h1");
 
+let hoveredOnce = false;
+
 let interval = null;
 
+shuffleLetters();
+
 text.onmouseover = () => {
-    shuffleLetters();
+    if (hoveredOnce) {
+        return;
+    }
+    else {
+        hoveredOnce = true;
+        shuffleLetters();
+    }
 };
 
 function shuffleLetters() {
@@ -16,17 +26,17 @@ function shuffleLetters() {
     interval = setInterval(() => {
         text.innerText = text.innerText.split("").map(
             (egal, index) => {
-                if (index < iteration) {
+                if (hoveredOnce && index < iteration) {
                     return text.dataset.value[index];
                 }
                 return letters[Math.floor(Math.random() * 26)];
             }
         ).join("");
 
-        if (iteration >= text.dataset.value.length) {
+        if (hoveredOnce &&iteration >= text.dataset.value.length) {
             clearInterval(interval);
         }
 
-        iteration++;
-    }, 40)
+        iteration+= 1/3;
+    }, 45)
 };
